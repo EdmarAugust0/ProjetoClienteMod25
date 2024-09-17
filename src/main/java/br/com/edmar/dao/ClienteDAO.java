@@ -16,4 +16,10 @@ public class ClienteDAO implements IClienteDAO {
 		return null;
 	}
 
+	@Override
+	public void excluir(Long cpf) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

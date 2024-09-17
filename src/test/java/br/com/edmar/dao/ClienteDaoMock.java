@@ -18,4 +18,10 @@ public class ClienteDaoMock implements IClienteDAO {
 		return cliente;
 	}
 
+	@Override
+	public void excluir(Long cpf) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

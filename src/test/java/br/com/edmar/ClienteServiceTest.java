@@ -46,4 +46,9 @@ public class ClienteServiceTest {
 		
 		Assert.assertTrue(retorno);
 	}
+	
+	@Test
+	public void excluirCliente() {
+		clienteService.excluir(cliente.getCpf());
+	}
 }

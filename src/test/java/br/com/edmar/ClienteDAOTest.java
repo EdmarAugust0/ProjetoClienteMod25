@@ -38,4 +38,16 @@ public class ClienteDAOTest {
 		
 		Assert.assertNotNull(clienteConsultado);
 	}
+	
+	@Test
+	public void salvarCliente() {
+		Boolean retorno = clienteDAO.salvar(cliente);
+		
+		Assert.assertTrue(retorno);
+	}
+	
+	@Test
+	public void excluirCliente() {
+		clienteDAO.excluir(cliente.getCpf());
+	}
 }

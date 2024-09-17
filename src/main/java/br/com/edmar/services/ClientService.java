@@ -27,4 +27,9 @@ public class ClientService implements IClienteServices {
 		return clienteDAO.buscarPorCpf(cpf);
 	}
 
+	@Override
+	public void excluir(Long cpf) {
+		
+	}
+
 }
