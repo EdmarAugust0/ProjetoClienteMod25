@@ -1,6 +1,7 @@
 package br.com.edmar;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.edmar.dao.IClienteDAO;
@@ -13,14 +14,16 @@ public class ClienteTest {
 	
 	private IClienteServices clienteService;
 	
+	private Cliente cliente;
+	
 	public ClienteTest() {
 		IClienteDAO dao = new ClienteDaoMock();
 		clienteService = new ClientService(dao);
 	}
 	
-	@Test
-	public void pesquisarCliente() {
-		Cliente cliente = new Cliente();
+	@Before
+	public void init() {
+		cliente = new Cliente();
 		cliente.setNome("Edmar");
 		cliente.setCpf(01231231231L);	
 		cliente.setCidade("Belo Horizonte");
@@ -30,7 +33,10 @@ public class ClienteTest {
 		cliente.setTel(31999999999L);
 		
 		clienteService.salvar(cliente);
-		
+	}
+	
+	@Test
+	public void pesquisarCliente() {
 		Cliente clienteConsultado = clienteService.buscarPorCpf(cliente.getCpf());
 			
 		Assert.assertNotNull(clienteConsultado);
