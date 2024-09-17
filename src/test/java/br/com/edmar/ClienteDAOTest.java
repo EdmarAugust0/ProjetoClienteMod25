@@ -50,4 +50,12 @@ public class ClienteDAOTest {
 	public void excluirCliente() {
 		clienteDAO.excluir(cliente.getCpf());
 	}
+	
+	@Test
+	public void alterarCliente() {
+		cliente.setNome("Augusto");
+		clienteDAO.alterar(cliente);
+		
+		Assert.assertEquals("Augusto", cliente.getNome());
+	}
 }

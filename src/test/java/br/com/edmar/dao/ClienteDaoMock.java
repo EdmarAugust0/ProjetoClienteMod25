@@ -24,4 +24,10 @@ public class ClienteDaoMock implements IClienteDAO {
 		
 	}
 
+	@Override
+	public void alterar(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
