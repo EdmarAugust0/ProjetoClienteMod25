@@ -5,9 +5,9 @@ import br.com.edmar.domain.Cliente;
 public class ClienteDaoMock implements IClienteDAO {
 
 	@Override
-	public void salvar(Cliente cliente) {
+	public Boolean salvar(Cliente cliente) {
 		// TODO Auto-generated method stub
-
+		return true;
 	}
 
 	@Override

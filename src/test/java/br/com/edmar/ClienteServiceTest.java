@@ -10,13 +10,13 @@ import br.com.edmar.dao.ClienteDaoMock;
 import br.com.edmar.services.ClientService;
 import br.com.edmar.services.IClienteServices;
 
-public class ClienteTest {
+public class ClienteServiceTest {
 	
 	private IClienteServices clienteService;
 	
 	private Cliente cliente;
 	
-	public ClienteTest() {
+	public ClienteServiceTest() {
 		IClienteDAO dao = new ClienteDaoMock();
 		clienteService = new ClientService(dao);
 	}
@@ -31,8 +31,6 @@ public class ClienteTest {
 		cliente.setNumero(123);
 		cliente.setEstado("MG");
 		cliente.setTel(31999999999L);
-		
-		clienteService.salvar(cliente);
 	}
 	
 	@Test
@@ -40,5 +38,12 @@ public class ClienteTest {
 		Cliente clienteConsultado = clienteService.buscarPorCpf(cliente.getCpf());
 			
 		Assert.assertNotNull(clienteConsultado);
+	}
+	
+	@Test
+	public void salvarCliente() {
+		Boolean retorno = clienteService.salvar(cliente);
+		
+		Assert.assertTrue(retorno);
 	}
 }

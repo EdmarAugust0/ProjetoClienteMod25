@@ -18,8 +18,8 @@ public class ClientService implements IClienteServices {
 	}
 
 	@Override
-	public void salvar(Cliente cliente) {
-		clienteDAO.salvar(cliente);
+	public Boolean salvar(Cliente cliente) {
+		return clienteDAO.salvar(cliente);
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import br.com.edmar.domain.Cliente;
 
 public interface IClienteServices {
 
-	void salvar(Cliente cliente);
+	Boolean salvar(Cliente cliente);
 
 	Cliente buscarPorCpf(Long cpf);
 
