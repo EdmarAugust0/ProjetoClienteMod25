@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import br.com.edmar.dao.IClienteDAO;
 import br.com.edmar.domain.Cliente;
+import br.com.edmar.exceptions.TipoChaveNaoEncontradaException;
 import br.com.edmar.dao.ClienteDaoMock;
 import br.com.edmar.services.ClientService;
 import br.com.edmar.services.IClienteServices;
@@ -41,7 +42,7 @@ public class ClienteServiceTest {
 	}
 	
 	@Test
-	public void salvarCliente() {
+	public void salvarCliente() throws TipoChaveNaoEncontradaException {
 		Boolean retorno = clienteService.salvar(cliente);
 		
 		Assert.assertTrue(retorno);
@@ -53,7 +54,7 @@ public class ClienteServiceTest {
 	}
 	
 	@Test
-	public void alterarCliente() {
+	public void alterarCliente() throws TipoChaveNaoEncontradaException {
 		cliente.setNome("Augusto");
 		clienteService.alterar(cliente);
 		

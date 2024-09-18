@@ -1,5 +1,12 @@
 package br.com.edmar.dao.generics;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.Map;
+
+import anotacao.TipoChave;
 import br.com.edmar.domain.Persistente;
 import br.com.edmar.exceptions.TipoChaveNaoEncontradaException;
 

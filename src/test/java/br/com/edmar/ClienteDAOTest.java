@@ -7,6 +7,7 @@ import org.junit.Test;
 import br.com.edmar.dao.ClienteDaoMock;
 import br.com.edmar.dao.IClienteDAO;
 import br.com.edmar.domain.Cliente;
+import br.com.edmar.exceptions.TipoChaveNaoEncontradaException;
 
 public class ClienteDAOTest {
 	
@@ -19,7 +20,7 @@ public class ClienteDAOTest {
 	}
 	
 	@Before
-	public void init() {
+	public void init() throws TipoChaveNaoEncontradaException {
 		cliente = new Cliente();
 		cliente.setNome("Edmar");
 		cliente.setCpf(01231231231L);	
@@ -29,19 +30,19 @@ public class ClienteDAOTest {
 		cliente.setEstado("MG");
 		cliente.setTel(31999999999L);
 		
-		clienteDAO.salvar(cliente);
+		clienteDAO.cadastrar(cliente);
 	}
 	
 	@Test
 	public void pesquisarCliente() {
-		Cliente clienteConsultado = clienteDAO.buscarPorCpf(cliente.getCpf());
+		Cliente clienteConsultado = clienteDAO.consultar(cliente.getCpf());
 		
 		Assert.assertNotNull(clienteConsultado);
 	}
 	
 	@Test
-	public void salvarCliente() {
-		Boolean retorno = clienteDAO.salvar(cliente);
+	public void salvarCliente() throws TipoChaveNaoEncontradaException {
+		Boolean retorno = clienteDAO.cadastrar(cliente);
 		
 		Assert.assertTrue(retorno);
 	}
@@ -52,7 +53,7 @@ public class ClienteDAOTest {
 	}
 	
 	@Test
-	public void alterarCliente() {
+	public void alterarCliente() throws TipoChaveNaoEncontradaException {
 		cliente.setNome("Augusto");
 		clienteDAO.alterar(cliente);
 		

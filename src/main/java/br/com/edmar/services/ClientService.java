@@ -5,6 +5,7 @@ package br.com.edmar.services;
 
 import br.com.edmar.dao.IClienteDAO;
 import br.com.edmar.domain.Cliente;
+import br.com.edmar.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * 
@@ -18,13 +19,13 @@ public class ClientService implements IClienteServices {
 	}
 
 	@Override
-	public Boolean salvar(Cliente cliente) {
-		return clienteDAO.salvar(cliente);
+	public Boolean salvar(Cliente cliente) throws TipoChaveNaoEncontradaException {
+		return clienteDAO.cadastrar(cliente);
 	}
 
 	@Override
 	public Cliente buscarPorCpf(Long cpf) {
-		return clienteDAO.buscarPorCpf(cpf);
+		return clienteDAO.consultar(cpf);
 	}
 
 	@Override
@@ -33,7 +34,7 @@ public class ClientService implements IClienteServices {
 	}
 
 	@Override
-	public void alterar(Cliente cliente) {
+	public void alterar(Cliente cliente) throws TipoChaveNaoEncontradaException {
 		clienteDAO.alterar(cliente);
 	}
 
